@@ -1,5 +1,5 @@
 import './render-table.css';
-import usersStore from '../../store/uses-store';
+import usersStore from '../../store/users-store';
 import { showModal } from '../render-modal/render-modal';
 import { deleteUserById } from '../../use-cases/delete-user-by-id';
 
@@ -19,12 +19,11 @@ const createTable = () => {
         </tr>
     `;
     const tableBody = document.createElement('tbody');
-    table.append(tableHeaders, tableBody);
+    table.append(tableHeaders, tableBody)
     return table;
 }
 
 /**
- * 
  * @param {MouseEvent} event 
  */
 const tableSelectListener = (event) => {
@@ -35,7 +34,6 @@ const tableSelectListener = (event) => {
 }
 
 /**
- * 
  * @param {MouseEvent} event 
  */
 const tableDeleteListener = async (event) => {
@@ -46,9 +44,9 @@ const tableDeleteListener = async (event) => {
         await deleteUserById(id);
         await usersStore.reloadPage();
         document.querySelector('#current-page').innerText = usersStore.getCurrentPage();
-        renderTable();
+        renderTable();       
     } catch (error) {
-        console.error(error);
+        console.log(error);
         alert('No se pudo eliminar el usuario');
     }
 }
@@ -67,7 +65,7 @@ export const renderTable = (element) => {
         table.addEventListener('click', tableSelectListener);
         table.addEventListener('click', tableDeleteListener);
     }
-
+    
     let tableHTML = '';
     users.forEach(user => {
         tableHTML += `
@@ -78,12 +76,12 @@ export const renderTable = (element) => {
                 <td>${user.lastName}</td>
                 <td>${user.isActive}</td>
                 <td>
-                    <a href="#" class="select-user" data-id="${user.id}">Select</a>
+                    <a href="#/" class="select-user" data-id="${user.id}">Select</a>
                     |
-                    <a href="#" class="delete-user" data-id="${user.id}">Delete</a>
+                    <a href="#/" class="delete-user" data-id="${user.id}">Delete</a>
                 </td>
             </tr>
-        `;
+        `
     });
     table.querySelector('tbody').innerHTML = tableHTML;
 }

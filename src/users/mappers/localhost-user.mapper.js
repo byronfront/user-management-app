@@ -1,4 +1,4 @@
-import { User } from "../models/user";
+import { User } from '../models/user';
 
 /**
  * 
@@ -7,7 +7,7 @@ import { User } from "../models/user";
  */
 export const localhostUserToModel = (localhostUser) => {
     const {id, isActive, balance, first_name, last_name, gender, avatar} = localhostUser;
-    
+
     return new User({
         id,
         isActive,

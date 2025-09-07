@@ -1,4 +1,4 @@
-import { localhostUserToModel } from "../mappers/localhost-user.mapper";
+import { localhostUserToModel } from '../mappers/localhost-user.mapper';
 import { User } from '../models/user';
 
 /**
@@ -8,8 +8,8 @@ import { User } from '../models/user';
  */
 export const loadUsersByPage = async (page = 1) => {
     const url = `${import.meta.env.VITE_BASE_URL}/users?_page=${page}`;
-    const rest = await fetch(url);
-    const data = await rest.json();
+    const res = await fetch(url);
+    const data = await res.json();
 
     const users = data.data.map(localhostUserToModel);
 

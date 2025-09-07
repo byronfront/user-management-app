@@ -4,8 +4,8 @@
 
 .modal-container {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 0px;
+    left: 0px;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -18,7 +18,7 @@
     background-color: white;
     border-radius: 5px;
     padding: 10px;
-    box-shadow: 0px 5px 15px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.2);
 }
 
 form {

@@ -16,7 +16,7 @@ export const showModal = async (id) => {
 
     if(!id) return;
     const user = await getUserById(id);
-    serFormValues(user);
+    setFormValues(user);
 }
 
 export const hideModal = () => {
@@ -28,7 +28,7 @@ export const hideModal = () => {
  * 
  * @param {User} user 
  */
-const serFormValues = (user) => {
+const setFormValues = (user) => {
     form.querySelector('[name="firstName"]').value = user.firstName;
     form.querySelector('[name="lastName"]').value = user.lastName;
     form.querySelector('[name="balance"]').value = user.balance;
@@ -39,11 +39,11 @@ const serFormValues = (user) => {
 /**
  * 
  * @param {HTMLDivElement} element 
- * @param {(userLike) => Promise<void>} callback 
+ * @param {(userLike) => Promise<void>} callback
  */
 export const renderModal = (element, callback) => {
     if (modal) return;
-    
+
     modal = document.createElement('div');
     modal.innerHTML = modalHtml;
     modal.className = 'modal-container hide-modal';
@@ -65,7 +65,7 @@ export const renderModal = (element, callback) => {
                 continue;
             }
             if (key === 'isActive') {
-                userLike[key] = value === 'on' ? true : false;
+                userLike[key] = (value === 'on') ? true : false;
                 continue;
             }
             userLike[key] = value;

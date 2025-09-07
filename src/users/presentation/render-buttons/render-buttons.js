@@ -1,5 +1,5 @@
-import usersStore from "../../store/uses-store";
-import { renderTable } from "../render-table/render-table";
+import usersStore from '../../store/users-store';
+import { renderTable } from '../render-table/render-table';
 import './render-buttons.css';
 
 /**
@@ -9,7 +9,7 @@ import './render-buttons.css';
 export const renderButtons = (element) => {
     const nextButton = document.createElement('button');
     nextButton.innerText = 'Next >';
-
+    
     const prevButton = document.createElement('button');
     prevButton.innerText = '< Prev';
 
